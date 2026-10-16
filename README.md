@@ -85,8 +85,14 @@ y [Search](https://developer.spotify.com/documentation/web-api/reference/search)
 Para producción define `NODE_ENV=production`, las variables reales y HTTPS en el proxy.
 El proceso rechaza `DEMO_MODE=true` en producción y exige un secreto de JWT de al menos
 32 caracteres. La cookie es `Secure` en producción. Para servir todo desde el mismo proceso,
-configura `FRONTEND_URL` con el origen público. La configuración actual escucha en loopback,
-pensada para ejecutarse detrás de un proxy local; adapta el host al entorno de despliegue.
+configura `FRONTEND_URL` con el origen público HTTPS. En Render se obtiene automáticamente de
+`RENDER_EXTERNAL_URL`. El servidor usa `0.0.0.0` en producción y loopback en desarrollo.
+
+Para el despliegue gratuito está preparado `render.yaml` (Render Free + Neon):
+[instrucciones](docs/deploy-render-neon.md). El servicio aún requiere conectar las cuentas,
+confirmar la base de `api-musica` y completar `DATABASE_URL` en Render. El Blueprint genera
+`JWT_SECRET`, configura el proxy y crea las tablas idempotentemente al iniciar (`AUTO_MIGRATE=true`).
+No incluye credenciales ni crea recursos de pago. El control de salud no mantiene despierta la base.
 
 ## Estructura
 
@@ -145,7 +151,7 @@ con las cuentas y colecciones anteriores; no hace falta borrar ni recrear tablas
   guardar, recargar sesión/colección, quitar, deshacer y cerrar/iniciar sesión.
 - Revisión visual a 1440, 768 y 390px; revisión de las Web Interface Guidelines.
 - MusicBrainz se prueba con transporte simulado para normalización, límites, caché y fallos.
-- 27 pruebas pasan. Consulta real de MusicBrainz y flujo de favoritos comprobados en navegador;
+- Consulta real de MusicBrainz y flujo de favoritos comprobados en navegador;
   resultados revisados a 1440, 390 y 320px. Detalle en `.taste-skill/musicbrainz-review.md`.
 - PostgreSQL externo y Spotify requieren completar el entorno y verificar contra esos servicios.
 - Código fuente en [GitHub](https://github.com/RubenIbaceta/API-buscador-musica). El despliegue público y la conexión a Neon se configurarán por separado.

@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: api-buscador-musica
+    runtime: node
+    plan: free
+    repo: https://github.com/RubenIbaceta/API-buscador-musica
+    branch: main
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: DEMO_MODE
+        value: "false"
+      - key: MUSIC_PROVIDER
+        value: musicbrainz
+      - key: AUTO_MIGRATE
+        value: "true"
+      - key: TRUST_PROXY_HOPS
+        value: "1"
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
