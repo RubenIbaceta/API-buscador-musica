@@ -2,6 +2,8 @@
 
 Repositorio: [RubenIbaceta/API-buscador-musica](https://github.com/RubenIbaceta/API-buscador-musica).
 
+Web publicada: [Savia](https://api-buscador-musica.onrender.com).
+
 Buscador de canciones y colección personal de favoritos. React + Vite, Node.js + Express y PostgreSQL.
 Busca en **MusicBrainz por defecto**, sin claves ni Spotify Premium. Spotify sigue disponible
 como proveedor opcional. MusicBrainz ofrece información musical, sin reproducción de audio.
@@ -89,8 +91,8 @@ configura `FRONTEND_URL` con el origen público HTTPS. En Render se obtiene auto
 `RENDER_EXTERNAL_URL`. El servidor usa `0.0.0.0` en producción y loopback en desarrollo.
 
 Para el despliegue gratuito está preparado `render.yaml` (Render Free + Neon):
-[instrucciones](docs/deploy-render-neon.md). El servicio aún requiere conectar las cuentas,
-confirmar la base de `api-musica` y completar `DATABASE_URL` en Render. El Blueprint genera
+[instrucciones](docs/deploy-render-neon.md). La instancia pública está activa y el flujo de
+registro, acceso y favoritos se verificó el 16 de octubre de 2026. El Blueprint genera
 `JWT_SECRET`, configura el proxy y crea las tablas idempotentemente al iniciar (`AUTO_MIGRATE=true`).
 No incluye credenciales ni crea recursos de pago. El control de salud no mantiene despierta la base.
 
@@ -154,7 +156,9 @@ con las cuentas y colecciones anteriores; no hace falta borrar ni recrear tablas
 - Consulta real de MusicBrainz y flujo de favoritos comprobados en navegador;
   resultados revisados a 1440, 390 y 320px. Detalle en `.taste-skill/musicbrainz-review.md`.
 - PostgreSQL externo y Spotify requieren completar el entorno y verificar contra esos servicios.
-- Código fuente en [GitHub](https://github.com/RubenIbaceta/API-buscador-musica). El despliegue público y la conexión a Neon se configurarán por separado.
+- [Despliegue público](https://api-buscador-musica.onrender.com) verificado: MusicBrainz, registro,
+  login y favoritos persistentes al recargar y volver a iniciar sesión. Detalle en
+  [verificación pública](docs/production-verification.md).
 
 ## Imágenes y diseño
 

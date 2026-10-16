@@ -1,8 +1,10 @@
 # Publicar Savia con Render Free y Neon
 
-Estado: configuración preparada; el servicio todavía no se ha creado ni publicado.
-Proyecto de Neon indicado por el usuario: **api-musica**. La base, rama y región se deben confirmar
-en ese proyecto antes de aplicar las tablas. No reutilizar una base ajena a Savia.
+Estado: publicado en https://api-buscador-musica.onrender.com, con el flujo principal verificado
+el 16 de octubre de 2026. Proyecto de Neon indicado por el usuario: **api-musica**.
+La base, rama y región no se inspeccionaron desde el panel de Neon; el registro y los favoritos
+se comprobaron mediante la aplicación pública y su repositorio PostgreSQL.
+Para otra instalación, confirma la base elegida antes de aplicar las tablas.
 
 La web React compilada y la API Express se sirven juntas desde Render. No hace falta separar
 el frontend en Vercel: todas las solicitudes usan `/api` y la sesión permanece en el mismo origen.
@@ -61,8 +63,9 @@ que evite el proxy de Render ni aumentes el valor sin verificar la cadena real d
 - Revisa que la cookie use HttpOnly, Secure y SameSite=Lax; confirma que las escrituras desde
   un origen ajeno se rechacen y que los logs no contengan secretos.
 
-Estas verificaciones públicas están pendientes hasta conectar las cuentas y completar el despliegue.
-Las pruebas locales no sustituyen la comprobación de la base externa y el proxy reales.
+Las verificaciones públicas de registro, login, búsqueda, recarga y favoritos se completaron;
+el detalle está en [production-verification.md](production-verification.md). No se reinició el
+servicio ni se inspeccionaron sus ajustes privados o los logs internos de Render.
 
 ## Límites gratuitos
 

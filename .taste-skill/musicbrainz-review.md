@@ -61,7 +61,8 @@ Top three problems (most visible first), each with the screenshot it shows in an
 2. musicbrainz-390.jpg: nombres de varios artistas son largos; saltos de línea conservados, sin solapamiento a 320px.
 3. Contenido: MusicBrainz no incluye audio y puede devolver distintas grabaciones; se explica junto a los resultados.
 
-Límites pendientes: conexión externa a PostgreSQL/Neon y despliegue público, en espera del usuario.
+Actualización posterior: el usuario publicó la aplicación. Registro, login, búsquedas y favoritos
+se comprobaron en la URL pública; véase `docs/production-verification.md` para evidencia y límites.
 La caché y el limitador son por proceso; usar una instancia de backend o implementar coordinación
 compartida antes de escalar réplicas. API gratuita para uso no comercial según MusicBrainz.
 
