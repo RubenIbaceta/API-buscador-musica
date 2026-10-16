@@ -1,0 +1,17 @@
+node_modules/
+frontend/dist/
+.env
+.env.local
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+.vercel/
+.deploy-tools/
+coverage/
+*.log
+.taste-skill/inspect*/
+.taste-skill/browser/
+.taste-skill/capture-preview.mjs
+.taste-skill/verify-render.mjs
+.taste-skill/render-check.json

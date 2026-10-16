@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Depression Cherry",
+    "artist": "Beach House",
+    "track": "Space Song",
+    "url": "https://open.spotify.com/track/7H0ya83CMmgFcOhw0UB6ow",
+    "imageSource": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029b7190e673e46271b2754aab",
+    "local": "/images/space-song.jpg",
+    "license": "Copyright de sus respectivos titulares. Portada de álbum, no fotografía de licencia abierta."
+  },
+  {
+    "title": "Being Funny in a Foreign Language",
+    "artist": "The 1975",
+    "track": "About You",
+    "url": "https://open.spotify.com/track/1fDFHXcykq4iw8Gg7s5hG9",
+    "imageSource": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e021f44db452a68e229650a302c",
+    "local": "/images/about-you.jpg",
+    "license": "Copyright de sus respectivos titulares. Portada de álbum, no fotografía de licencia abierta."
+  },
+  {
+    "title": "Hasta la Raíz",
+    "artist": "Natalia Lafourcade",
+    "track": "Hasta la Raíz",
+    "url": "https://open.spotify.com/track/3lGMtkONrZdJ8kTCg6KIFf",
+    "imageSource": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02bd4c237c04735257dd64c510",
+    "local": "/images/hasta-la-raiz.jpg",
+    "license": "Copyright de sus respectivos titulares. Portada de álbum, no fotografía de licencia abierta."
+  },
+  {
+    "title": "Bon Iver",
+    "artist": "Bon Iver",
+    "track": "Holocene",
+    "url": "https://open.spotify.com/track/4fbvXwMTXPWaFyaMWUm9CR",
+    "imageSource": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02567b0a6defc057bcbfaedadb",
+    "local": "/images/holocene.jpg",
+    "license": "Copyright de sus respectivos titulares. Portada de álbum, no fotografía de licencia abierta."
+  },
+  {
+    "title": "Currents",
+    "artist": "Tame Impala",
+    "track": "The Less I Know The Better",
+    "url": "https://open.spotify.com/track/6K4t31amVTZDgR3sKmwUJJ",
+    "imageSource": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029e1cfc756886ac782e363d79",
+    "local": "/images/currents.jpg",
+    "license": "Copyright de sus respectivos titulares. Portada de álbum, no fotografía de licencia abierta."
+  },
+  {
+    "title": "Rumours",
+    "artist": "Fleetwood Mac",
+    "track": "Dreams - 2004 Remaster",
+    "url": "https://open.spotify.com/track/0ofHAoxe9vBkTCp2UQIavz",
+    "imageSource": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e52a59a28efa4773dd2bfe1b",
+    "local": "/images/dreams.jpg",
+    "license": "Copyright de sus respectivos titulares. Portada de álbum, no fotografía de licencia abierta."
+  },
+  {
+    "title": "Discovery",
+    "artist": "Daft Punk",
+    "track": "Something About Us",
+    "url": "https://open.spotify.com/track/1NeLwFETswx8Fzxl2AFl91",
+    "imageSource": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e021e81bff9807a9e629fce5ade",
+    "local": "/images/discovery.jpg",
+    "license": "Copyright de sus respectivos titulares. Portada de álbum, no fotografía de licencia abierta."
+  },
+  {
+    "title": "Show Me How",
+    "artist": "Men I Trust",
+    "track": "Show Me How",
+    "url": "https://open.spotify.com/track/01TyFEZu6mHbffsVfxgrFn",
+    "imageSource": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0240faefaf8ebe0e1564c60faa",
+    "local": "/images/show-me-how.jpg",
+    "license": "Copyright de sus respectivos titulares. Portada de álbum, no fotografía de licencia abierta."
+  }
+]
