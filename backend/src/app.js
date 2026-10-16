@@ -11,7 +11,7 @@ import { ApiError } from './lib/errors.js';
 export function createApp({ repository, catalog, config }) {
   const app = express();
   app.disable('x-powered-by');
-  app.use(helmet({ contentSecurityPolicy: { directives: { imgSrc: ["'self'", 'https://i.scdn.co', 'https://mosaic.scdn.co', 'https://*.mzstatic.com'], connectSrc: ["'self'"], styleSrc: ["'self'", "'unsafe-inline'"] } } }));
+  app.use(helmet({ contentSecurityPolicy: { directives: { imgSrc: ["'self'", 'https://i.scdn.co', 'https://mosaic.scdn.co', 'https://*.mzstatic.com', 'https://coverartarchive.org', 'https://archive.org', 'https://*.archive.org'], connectSrc: ["'self'"], styleSrc: ["'self'", "'unsafe-inline'"] } } }));
   app.use(cors({ origin: config.frontendUrl, credentials: true }));
   app.use(express.json({ limit: '16kb' }), cookieParser());
   app.use('/api', (req, res, next) => {

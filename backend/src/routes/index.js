@@ -18,7 +18,7 @@ export function apiRoutes({ auth, repository, catalog, config }) {
   const users = authController(auth, config.production);
   const songs = songsController(catalog);
   const favorites = favoritesController(repository);
-  router.get('/health', (req, res) => res.json({ status: 'ok', mode: config.demo ? 'demo' : 'live' }));
+  router.get('/health', (req, res) => res.json({ status: 'ok', mode: config.demo ? 'demo' : 'live', provider: catalog.provider || config.musicProvider || 'demo' }));
   router.post('/auth/register', authLimit, validate(registrationSchema), users.register);
   router.post('/auth/login', authLimit, validate(loginSchema), users.login);
   router.post('/auth/logout', users.logout);

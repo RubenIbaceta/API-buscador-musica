@@ -6,6 +6,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [ready, setReady] = useState(false);
   const [mode, setMode] = useState(null);
+  const [provider, setProvider] = useState(null);
   useEffect(() => {
     const controller = new AbortController();
     const interceptor = api.interceptors.response.use(response => response, error => {
@@ -13,7 +14,7 @@ export function AuthProvider({ children }) {
       return Promise.reject(error);
     });
     api.get('/auth/me', { signal: controller.signal }).then(({ data }) => setUser(data.user)).catch(() => {}).finally(() => { if (!controller.signal.aborted) setReady(true); });
-    api.get('/health', { signal: controller.signal }).then(({ data }) => setMode(data.mode)).catch(() => {});
+    api.get('/health', { signal: controller.signal }).then(({ data }) => { setMode(data.mode); setProvider(data.provider); }).catch(() => {});
     return () => { controller.abort(); api.interceptors.response.eject(interceptor); };
   }, []);
   async function authenticate(kind, values) {
@@ -21,6 +22,6 @@ export function AuthProvider({ children }) {
     setUser(data.user); return data.user;
   }
   async function logout() { await api.post('/auth/logout'); setUser(null); }
-  return <AuthContext.Provider value={{ user, ready, mode, authenticate, logout }}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ user, ready, mode, provider, authenticate, logout }}>{children}</AuthContext.Provider>;
 }
 export const useAuth = () => useContext(AuthContext);

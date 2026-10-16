@@ -10,7 +10,7 @@ export default function SearchForm({ busy = false, suggestions = true, label = '
   useEffect(() => { setValue(query); }, [query]);
   useEffect(() => {
     if (value.trim() === query) return;
-    const timeout = setTimeout(() => setParams(value.trim() ? { q: value.trim() } : {}, { replace: true, preventScrollReset: true }), 350);
+    const timeout = setTimeout(() => setParams(value.trim() ? { q: value.trim() } : {}, { replace: true, preventScrollReset: true }), 650);
     return () => clearTimeout(timeout);
   }, [value, query, setParams]);
   function search(event) { event.preventDefault(); setParams(value.trim() ? { q: value.trim() } : {}, { preventScrollReset: true }); }

@@ -34,7 +34,7 @@ Revisión de código, árbol accesible y flujos en navegador. No es una certific
 
 ## frontend/src/components/SongList.jsx
 
-✓ pass — lista semántica; enlaces reales a Spotify, texto resistente a títulos largos, números tabulares, nombres accesibles.
+✓ pass — lista semántica; enlaces reales a Spotify o MusicBrainz, texto resistente a títulos largos, números tabulares, nombres accesibles según proveedor; duración ausente identificada.
 
 ## frontend/src/components/AlbumSheet.jsx
 
@@ -42,7 +42,7 @@ Revisión de código, árbol accesible y flujos en navegador. No es una certific
 
 ## frontend/src/components/Cover.jsx
 
-✓ pass — alt, dimensiones explícitas, carga diferida, prioridad en imágenes críticas, fallback al fallar.
+✓ pass — alt, dimensiones explícitas, carga diferida, prioridad en imágenes críticas, respaldo visible al cargar o fallar.
 
 ## frontend/src/components/Header.jsx
 
@@ -50,7 +50,7 @@ Revisión de código, árbol accesible y flujos en navegador. No es una certific
 
 ## frontend/src/components/Footer.jsx
 
-✓ pass — enlaces reales a créditos y Spotify; modo de muestra identificado.
+✓ pass — enlaces reales a créditos y proveedor activo; persistencia local identificada.
 
 ## frontend/src/components/Brand.jsx
 
@@ -86,3 +86,5 @@ Revisión de código, árbol accesible y flujos en navegador. No es una certific
 
 La capitalización se adapta al español y al sentence case solicitado por design-taste-frontend;
 no se aplica el Title Case inglés a todos los títulos.
+
+La revisión adicional del proveedor MusicBrainz está en musicbrainz-review.md.

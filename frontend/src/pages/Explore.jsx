@@ -36,12 +36,12 @@ export default function Explore({ notify }) {
   const initial = !query;
   return <>
     <section className="hero shell" aria-labelledby="explore-title">
-      <div className="hero-intro"><h1 id="explore-title"><span>Tu próxima</span><span>buena canción.</span></h1><p>Encuentra esa canción que se queda contigo.<br className="desktop-break" /> Búscala en Spotify y hazle un lugar en tu colección.</p></div>
+      <div className="hero-intro"><h1 id="explore-title"><span>Tu próxima</span><span>buena canción.</span></h1><p>Encuentra esa canción que se queda contigo.<br className="desktop-break" /> Búscala por su nombre y hazle un lugar en tu colección.</p></div>
       <SearchForm busy={busy} />
     </section>
     <div className="shell explore-content" aria-busy={busy}>
       <p className="sr-only" role="status">{busy ? 'Buscando canciones…' : error || (query ? `${result.total} ${result.total === 1 ? 'resultado' : 'resultados'} para ${query}` : 'Selección de canciones lista.')}</p>
-      {busy ? <div className="loading-state"><LoaderCircle className="spinner" aria-hidden="true" /><p>Buscando buenas canciones…</p></div> : error ? <EmptyState title="La búsqueda tendrá que esperar" action="Volver a intentar" onAction={() => setRevision(value => value + 1)}>{error}</EmptyState> : result.items.length === 0 ? <EmptyState title={query ? 'Ninguna coincidencia' : 'Empieza por una canción'} action={query ? 'Limpiar búsqueda' : undefined} to="/">{query ? `No encontramos “${query}”. Prueba con otro nombre de canción, artista o álbum.${result.source === 'demo' ? ' La muestra incluye 8 canciones.' : ''}` : 'Escribe el nombre de una canción, un artista o un álbum para explorar Spotify.'}</EmptyState> : <>
+      {busy ? <div className="loading-state"><LoaderCircle className="spinner" aria-hidden="true" /><p>Buscando buenas canciones…</p></div> : error ? <EmptyState title="La búsqueda tendrá que esperar" action="Volver a intentar" onAction={() => setRevision(value => value + 1)}>{error}</EmptyState> : result.items.length === 0 ? <EmptyState title={query ? 'Ninguna coincidencia' : 'Empieza por una canción'} action={query ? 'Limpiar búsqueda' : undefined} to="/">{query ? `No encontramos “${query}”. Prueba con otro nombre de canción, artista o álbum.${result.source === 'demo' ? ' La muestra incluye 8 canciones.' : ''}` : 'Escribe el nombre de una canción, un artista o un álbum para explorar el catálogo.'}</EmptyState> : <>
         {initial && <section className="featured-section" aria-labelledby="featured-title"><div className="section-heading" data-reveal><h2 id="featured-title">Para volver a escuchar</h2><p>Una selección para empezar</p></div><AlbumSheet songs={result.items.slice(0, 4)} notify={notify} /></section>}
         <section className={`tracks-section${initial ? '' : ' search-results'}`} aria-labelledby="tracks-title">
           <div className="section-heading" data-reveal><div><h2 id="tracks-title">{initial ? 'Un punto de partida' : 'Lo que encontramos'}</h2>{!initial && <p className="search-query">Para “{query}”</p>}</div><p>{initial ? 'Canciones para estrenar tu colección' : `${new Intl.NumberFormat('es-CL').format(result.total)} ${result.total === 1 ? 'canción' : 'canciones'}`}</p></div>
@@ -50,6 +50,8 @@ export default function Explore({ notify }) {
         </section>
       </>}
       {result.source === 'demo' && !busy && !error && <p className="demo-note">Estás explorando un catálogo de muestra de 8 canciones. Abre cualquier canción para escucharla en Spotify.</p>}
+      {result.source === 'selection' && !busy && !error && <p className="demo-note">Ocho canciones elegidas para empezar. Usa el buscador para descubrir más.</p>}
+      {result.source === 'musicbrainz' && !busy && !error && <p className="demo-note">Datos de <a href="https://musicbrainz.org" target="_blank" rel="noreferrer">MusicBrainz</a> y portadas de <a href="https://coverartarchive.org" target="_blank" rel="noreferrer">Cover Art Archive</a>, cuando están disponibles. Cada canción abre su ficha; no incluye reproducción de audio.</p>}
     </div>
   </>;
 }

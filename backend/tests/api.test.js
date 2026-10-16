@@ -86,6 +86,21 @@ test('favorites: rejects unsafe artwork and offsite song links', async () => {
   await agent.post('/api/favorites').send({ ...song, image: 'javascript:alert(1)' }).expect(400);
   await agent.post('/api/favorites').send({ ...song, url: 'https://malicious.test/track/x' }).expect(400);
 });
+
+test('favorites: persists MusicBrainz alongside Spotify and validates recording identity and cover host', async () => {
+  const id = 'a1111111-1111-4111-8111-111111111111';
+  const music = { ...song, id: `musicbrainz-${id}`, url: `https://musicbrainz.org/recording/${id}`, image: `https://coverartarchive.org/release/${id}/front-250` };
+  const agent = request.agent(app); const registration = await agent.post('/api/auth/register').send(person);
+  await agent.post('/api/favorites').send(song).expect(201);
+  await agent.post('/api/favorites').send(music).expect(201);
+  await agent.post('/api/favorites').send(music).expect(201);
+  assert.deepEqual(await postgresRepository(pool).getFavorites(registration.body.user.id), [music, song]);
+  await agent.post('/api/favorites').send({ ...music, id: song.id }).expect(400);
+  await agent.post('/api/favorites').send({ ...music, url: song.url }).expect(400);
+  await agent.post('/api/favorites').send({ ...music, image: `https://coverartarchive.org.evil.test/release/${id}/front-250` }).expect(400);
+  await agent.delete(`/api/favorites/${music.id}`).expect(204);
+  assert.deepEqual((await agent.get('/api/favorites')).body.items, [song]);
+});
 test('search: accent-insensitive sample search, empty and unknown queries', async () => {
   const response = await request(app).get('/api/songs?q=raiz').expect(200);
   assert.equal(response.body.items[0].title, 'Hasta la Raíz');

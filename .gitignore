@@ -15,3 +15,6 @@ coverage/
 .taste-skill/capture-preview.mjs
 .taste-skill/verify-render.mjs
 .taste-skill/render-check.json
+.taste-skill/verify-musicbrainz.mjs
+.taste-skill/musicbrainz-*.jpg
+.taste-skill/musicbrainz-render.json
